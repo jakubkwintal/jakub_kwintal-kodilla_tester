@@ -8,8 +8,6 @@ public class FirstClass {
         checkAllParameters(heavyNotebook);
         checkAllParameters(oldNotebook);
     }
-
-
     public static void checkAllParameters(Notebook notebook){
         System.out.println(notebook.weight + " " + notebook.price + " " + notebook.colour);
         notebook.checkPrice();
