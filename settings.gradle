@@ -5,4 +5,5 @@ include 'leapyear'
 include 'Array'
 include 'kodilla-basic-tests'
 include 'RandomNumbers'
+include 'kodilla-collections'
 
