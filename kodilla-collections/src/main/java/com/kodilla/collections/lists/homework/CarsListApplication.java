@@ -15,7 +15,7 @@ public class CarsListApplication {
         cars.add(new Toyota(30, 27));
         cars.add(new Mercedes(43, 28));
         cars.add(new Volkswagen(34, 26));
-        Toyota toyota = new Toyota(32,19);
+        Toyota toyota = new Toyota(32, 19);
         cars.add(toyota);
 
         System.out.println("-----------------------------------");

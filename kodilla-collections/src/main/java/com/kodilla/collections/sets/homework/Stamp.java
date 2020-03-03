@@ -5,9 +5,9 @@ import java.util.Objects;
 public class Stamp {
     private String stampName;
     private String stampSize;
-    private String stamped;
+    private boolean stamped;
 
-    public Stamp(String stampName, String stampSize, String stamped) {
+    public Stamp(String stampName, String stampSize, boolean stamped) {
         this.stampName = stampName;
         this.stampSize = stampSize;
         this.stamped = stamped;
@@ -21,7 +21,7 @@ public class Stamp {
         return stampSize;
     }
 
-    public String getStamped() {
+    public boolean getStamped() {
         return stamped;
     }
 

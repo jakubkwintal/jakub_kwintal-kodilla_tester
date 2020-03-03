@@ -10,23 +10,20 @@ import java.util.Random;
 public class CarApplication {
 
     public static void main(String[] args) {
-        Random random = new Random();
-    Car[] cars = new Car[random.nextInt(15) + 1];
-    for (int i=0; i<cars.length; i++)
-        cars[i] = drawCar();
-    for (Car car : cars)
+        Car[] cars = new Car[new Random().nextInt(15) + 1];
+        for (int i = 0; i < cars.length; i++)
+            cars[i] = drawCar();
+        for (Car car : cars)
             CarUtils.describeCar(car);
     }
+
     public static Car drawCar() {
-        Random random = new Random();
-        int drawSomeCar = random.nextInt(3);
-        int speedIn = random.nextInt(41);
+        int drawSomeCar = new Random().nextInt(3);
+        int speedIn = new Random().nextInt(41);
         int speedOut = 0; // musiałem dodać tą zmienną bo jest w klasach poszczególnych samochodów.
-        if (drawSomeCar == 0)
-            return new Toyota(speedIn, speedOut);
-        else if (drawSomeCar == 1)
-            return new Mercedes(speedIn, speedOut);
-        else
-            return new Volkswagen(speedIn, speedOut);
+
+        if (drawSomeCar == 0) return new Toyota(speedIn, speedOut);
+        else if (drawSomeCar == 1) return new Mercedes(speedIn, speedOut);
+        else return new Volkswagen(speedIn, speedOut);
     }
 }
