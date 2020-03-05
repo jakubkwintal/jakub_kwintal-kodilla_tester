@@ -6,4 +6,5 @@ include 'Array'
 include 'kodilla-basic-tests'
 include 'RandomNumbers'
 include 'kodilla-collections'
+include 'kodilla-collections-advanced'
 
