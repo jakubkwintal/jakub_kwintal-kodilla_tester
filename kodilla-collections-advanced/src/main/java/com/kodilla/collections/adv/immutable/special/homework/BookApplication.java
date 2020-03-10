@@ -10,7 +10,7 @@ public class BookApplication {
 //        Wydaje mi się, że jeśli to będą dokładnie takie same obiekty,
 //        to adres będzie ten sam. Ale nie jest...
 
-        System.out.println(book1==book2);
+        System.out.println(book1 == book2);
 
         System.out.println(book1.hashCode());
         System.out.println(book2.hashCode());

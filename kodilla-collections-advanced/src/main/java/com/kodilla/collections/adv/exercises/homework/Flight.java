@@ -2,6 +2,8 @@ package com.kodilla.collections.adv.exercises.homework;
 
 import java.util.Objects;
 
+// "1. Klasa Flight z polami String departure oraz String arrival."
+
 public class Flight {
     private String departure;
     private String arrival;
