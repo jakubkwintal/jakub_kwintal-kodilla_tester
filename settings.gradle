@@ -7,4 +7,5 @@ include 'kodilla-basic-tests'
 include 'RandomNumbers'
 include 'kodilla-collections'
 include 'kodilla-collections-advanced'
+include 'kodilla-stream'
 
