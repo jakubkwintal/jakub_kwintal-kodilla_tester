@@ -4,12 +4,22 @@ import com.kodilla.stream.UsersRepository;
 
 public class ForumStats {
     public static void main(String[] args) {
-        double posts = UsersRepository.getUsersList()
+        double avgOfPosts1 = UsersRepository.getUsersList()
                 .stream()
+                .filter(u -> u.getAge() >= 40)
                 .map(u -> u.getNumberOfPosts())
-                .mapToInt(n -> n)
+                .mapToInt(u -> u)
                 .average()
                 .getAsDouble();
-        System.out.println(posts);
+        System.out.println(avgOfPosts1);
+
+        double avgOfPosts2 = UsersRepository.getUsersList()
+                .stream()
+                .filter(u -> u.getAge() < 40)
+                .map(u -> u.getNumberOfPosts())
+                .mapToInt(u -> u)
+                .average()
+                .getAsDouble();
+        System.out.println(avgOfPosts2);
     }
 }
