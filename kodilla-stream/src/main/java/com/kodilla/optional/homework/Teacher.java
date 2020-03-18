@@ -10,4 +10,10 @@ public class Teacher {
     public String getName() {
         return name;
     }
+
+    @Override
+    public String toString() { // konieczne było dodanie tej metody (niezrozumiałe wyniki programu)
+        // i edycji (skrócenia).
+        return name;
+    }
 }
