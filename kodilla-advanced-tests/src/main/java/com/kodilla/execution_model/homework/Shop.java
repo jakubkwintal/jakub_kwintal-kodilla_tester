@@ -10,11 +10,24 @@ public class Shop {
 //    private ZonedDateTime firstDate;
 //    private ZonedDateTime secondDate;
 
+    //    metoda wstawiająca zamówienie
     public void addOrder(Order order) {
         this.orders.add(order);
     }
 
-//    metoda filtrująca zamówienia pod wzglęsem zakresu dat
+    // metoda zwracająca liczbę zamówień
+    public int getSize() {
+        return this.orders.size();
+    }
+
+    //    metoda sumująca wartość zamówień
+    public void sumOfOrdersPrice() {
+        double sum = 0;
+        for (Order order : orders) sum += order.getPrice();
+    }
+
+
+    //    metoda filtrująca zamówienia pod wzglęsem zakresu dat
 //    public void getOrderFromRangeOfTime(LocalDate dateOfOrder) {
 //        if (firstDate.isBefore(ChronoZonedDateTime.from(dateOfOrder)) && secondDate.isAfter(ChronoZonedDateTime.from(dateOfOrder)));
 //        {
@@ -29,16 +42,4 @@ public class Shop {
 //        }
 
 
-// metoda zwracająca liczbę zamówień
-        public int numberOfOrders() {return this.orders.size();}
-
-
-
-//    metoda sumująca wartość zamówień
-//    public void sumOfOrdersPrice(Order order) {
-//        for (int i = 0; i < orders.size(); i++) {
-//
-//
-//            }
-
-        }
+}
