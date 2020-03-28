@@ -1,25 +1,31 @@
 package com.kodilla.parametrized_tests.homework;
 
-        import org.junit.jupiter.params.ParameterizedTest;
-        import org.junit.jupiter.params.provider.CsvFileSource;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvFileSource;
 
-        import java.util.Set;
+import java.util.HashSet;
+import java.util.Set;
 
-        import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class GamblingMachineTestSuite {
 
     private GamblingMachine gamblingMachine = new GamblingMachine();
 
     @ParameterizedTest
-    @CsvFileSource(resources = "/gamblingMachineCorrectNumbers.csv", numLinesToSkip = 1)
-    public void shouldReturnTrueIfNumbersAreOk(Set<Integer> input, int expected) throws InvalidNumbersException {
-        assertEquals(expected, gamblingMachine.howManyWins(input));
-    }
+    @CsvFileSource(resources = "/gamblingMachineNumbers.csv", numLinesToSkip = 0)
+    public void shouldReturnTrueIfNumbersAreOk(String string) throws InvalidNumbersException {
+        String[] splitedString = string.split(" ");
 
-    @ParameterizedTest
-    @CsvFileSource(resources = "/gamblingMachineIncorrectNumbers.csv", numLinesToSkip = 1)
-    public void shouldReturnFalseIfNumbersAreWrong(Set<Integer> input, int expected) throws InvalidNumbersException {
-        assertEquals(expected, gamblingMachine.howManyWins(input));
+        Set<Integer> validSets = new HashSet<>();
+
+        for (String number : splitedString) {
+            validSets.add(Integer.parseInt(number));
+        }
+
+        int counted = gamblingMachine.howManyWins(validSets);
+        boolean result = counted >= 0 && counted <= 6;
+        assertTrue(result);
     }
 }
