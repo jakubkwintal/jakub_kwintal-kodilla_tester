@@ -8,25 +8,23 @@ public class WeatherService {
 
     private Set<Client> clients = new HashSet<>();
 
-    public void addLocation(Location location) {this.locations.add(location);}
+    public void addLocation(Location location) {
+        this.locations.add(location);}
 
-    public void addSubscriberToOneLocation(Client client, Location location) {
+    public void addSubscriberToOneLocation(Client client) {
         this.clients.add(client);
-        this.locations.add(location);
     }
 
-    public void removeSubscriberFromOneLocation(Client client, Location location) {
-        this.clients.remove(client);
-        this.locations.remove(location);
-    }
-
-    public void removeSubscriberFromAllLocation(Client client) {
+    public void removeSubscriberFromOneLocation(Client client) {
         this.clients.remove(client);
     }
 
-    public void sendWeatherNotificationForOneLocation(Notification notification) {
+    public void removeSubscriberFromAllLocations(Client client) {
+        this.clients.remove(client);
+    }
+
+    public void sendWeatherNotificationForOneLocation(Notification notification) { // jak wysłać użytkownikom z jednej lokalizacji ????
         this.clients.forEach(client -> client.receive(notification));
-
     }
 
     public void sendWeatherNotificationToAll(Notification notification) {

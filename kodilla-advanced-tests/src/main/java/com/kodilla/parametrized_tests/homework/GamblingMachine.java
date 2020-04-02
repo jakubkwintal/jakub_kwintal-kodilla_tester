@@ -1,8 +1,8 @@
 package com.kodilla.parametrized_tests.homework;
 
-import java.util.HashSet;
-import java.util.Random;
-import java.util.Set;
+        import java.util.HashSet;
+        import java.util.Random;
+        import java.util.Set;
 
 public class GamblingMachine {
 
