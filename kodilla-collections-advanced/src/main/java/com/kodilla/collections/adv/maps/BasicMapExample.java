@@ -14,7 +14,7 @@ public class BasicMapExample {
         System.out.println(grade);
 
         for (Map.Entry<String, Double> note: grades.entrySet())
-            System.out.println("Grades of " + note.getKey() + "is equals to " + note.getValue());
+            System.out.println("Grades of " + note.getKey() + " is equals to " + note.getValue());
 
     }
 }
