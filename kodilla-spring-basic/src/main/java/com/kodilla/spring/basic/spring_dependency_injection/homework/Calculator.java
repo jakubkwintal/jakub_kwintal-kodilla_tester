@@ -5,10 +5,10 @@ import org.springframework.stereotype.Component;
 @Component
 public class Calculator {
 
-    private Display displayResult;
+    private Display display;
 
-    public Calculator(Display displayResult) {
-        this.displayResult = displayResult;
+    public Calculator(Display display) {
+        this.display = display;
     }
 
     public double add(double a, double b) {
