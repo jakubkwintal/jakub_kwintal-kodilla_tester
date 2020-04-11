@@ -1,5 +1,8 @@
 package com.kodilla.spring.basic.dependency_injection;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class SkypeMessageService implements MessageService {
 
     @Override

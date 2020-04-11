@@ -1,7 +1,9 @@
 package com.kodilla.spring.basic.dependency_injection;
 
-public class SimpleApplication {
+import org.springframework.beans.factory.annotation.Autowired;
 
+public class SimpleApplication {
+@Autowired
     private MessageService messageService;
 
     public SimpleApplication(MessageService messageService) {
