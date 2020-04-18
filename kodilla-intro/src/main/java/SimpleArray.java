@@ -13,5 +13,9 @@ public class SimpleArray {
     int numberOfAlbums = u2Albums.length;
 
     System.out.println("Lista wybranych albumów U2 zawiera" + " " + numberOfAlbums + " " + "pozycji.");
+
+
     }
+
+
 }

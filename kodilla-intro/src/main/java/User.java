@@ -6,12 +6,15 @@ public class User {
         this.name = name;
         this.age = age;
     }
+
     public String getName() {
         return this.name;
     }
+
     public int getAge() {
         return this.age;
     }
+
     public static void main(String[] args) {
         User marta = new User("Marta", 16);
         User tomek = new User("Tomek", 46);
@@ -29,13 +32,14 @@ public class User {
         }
         int averageOfAge = result / users.length;
 
-        System.out.println("Średnia wieku:" + " " + averageOfAge);
+        System.out.println("Średnia wieku: " + averageOfAge);
+
         for (int i = 0; i < users.length; i++) {
-             if (users[i].getAge() < averageOfAge) {
-                 System.out.println(users[i].getName());
-             }
-       //      else {
-         //        System.out.println("Wszyscy są w jednym wieku.");
-               }
+            if (users[i].getAge() < averageOfAge) {
+                System.out.println(users[i].getName());
+            }
+            //      else {
+            //        System.out.println("Wszyscy są w jednym wieku.");
+        }
     }
 }

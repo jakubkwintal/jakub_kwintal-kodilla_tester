@@ -2,7 +2,8 @@ package com.kodilla.basic_assertion;
 
 import org.junit.jupiter.api.Test;
 
-import static com.kodilla.basic_assertion.ResultChecker.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 
 public class CalculatorTestSuite {
 

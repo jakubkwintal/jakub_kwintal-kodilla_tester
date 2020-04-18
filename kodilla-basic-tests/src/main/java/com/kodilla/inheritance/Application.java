@@ -8,6 +8,8 @@ public class Application {
         car.turnOnLights();
 
         Convertible convertible = new Convertible(4, 2);
+        convertible.turnOnLights();
+        System.out.println(convertible.getSeats());
         convertible.displayNumberOfSeats();
     }
 }

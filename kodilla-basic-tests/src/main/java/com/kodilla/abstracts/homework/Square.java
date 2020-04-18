@@ -1,12 +1,25 @@
-//package com.kodilla.abstracts.homework;
-////
-////public class Square extends Shape {
-////    @Override
-////    public void Surface() {
-////        System.out.println("Pole kwadratu wynosi x.");
-////    }
-////    @Override
-////    public void Circuit() {
-////        System.out.println("Obwód kwadratu wynosi y.");
-////    }
-////}
+package com.kodilla.abstracts.homework;
+
+public class Square extends Shape {
+
+    public Square() {
+        super(0, 7, 0);
+    }
+
+    @Override
+    public double calculateArea() {
+       return 4*getWidth();
+    }
+
+    @Override
+    public double calculatePerimeter() {
+        return getWidth()*getWidth();
+    }
+
+    @Override
+    public double calculateHypotenuse() {
+        return 0;
+    }
+
+
+}

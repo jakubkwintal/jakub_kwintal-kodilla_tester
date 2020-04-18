@@ -21,6 +21,7 @@ public class Grades {
     public int[] getValues() {
         return values;
     }
+
     public double getAverage() {
         if (this.values.length == 0) {
             return 0;
