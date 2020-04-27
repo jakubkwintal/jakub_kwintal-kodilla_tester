@@ -4,29 +4,29 @@ import java.util.*;
 
 public class WeatherService {
 
-    Map<Set<Location>, Set<Client>> oneClientToLocation = new HashMap<>();
+    Map<Set<Location>, Set<Client>> oneClientToOneLocation = new HashMap<>();
     private Set<Location> locations = new HashSet<>();
     private Set<Client> clients = new HashSet<>();
 
     public void addSubscriberToOneLocation(Location location, Client client) {
-        oneClientToLocation.put(locations, clients);
+        oneClientToOneLocation.put(locations, clients);
     }
 
-    public void removeSubscriberFromOneLocation(Client client) {
-        this.clients.remove(client);
+    public void removeSubscriberFromOneLocation(Location location, Client client) {
+        oneClientToOneLocation.remove(locations, clients);
     }
 
-    public void removeSubscriberFromAllLocations(Client client) {
-        this.clients.remove(client);
-    }
+//    public void removeSubscriberFromAllLocations(Notification notification) { // jak to zrobić???
+//        oneClientToOneLocation.forEach(u -> u.remove(clients));
+//    }
 
-    public void sendWeatherNotificationForOneLocation(Notification notification) { // jak wysłać użytkownikom z jednej lokalizacji ???? Może być tablica.
-        // lokalizacja, klient, lokalizacja, klient, itd. Może: https://www.daniweb.com/programming/software-development/threads/408481/storing-multiple-objects-in-an-array
-        this.clients.forEach(client -> client.receive(notification));
+    public void sendWeatherNotificationForOneLocation(Notification notification) {  // jak wysłać klientom z jednej tylko lokalizacji????
+        Set<Client> clientsInOneLocation = new HashSet<>();
+        clientsInOneLocation.forEach(client -> client.receive(notification));
     }
 
     public void sendWeatherNotificationToAll(Notification notification) {
-        this.clients.forEach(client -> client.receive(notification));
+        clients.forEach(client -> client.receive(notification));
     }
 
     public void removeOneLocation(Location location) {

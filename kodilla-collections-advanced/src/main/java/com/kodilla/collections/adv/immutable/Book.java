@@ -1,7 +1,7 @@
 package com.kodilla.collections.adv.immutable;
 
 public class Book {
-    protected String author;
+    protected String author; // pola traktowane jak prywatne ale z możliwością dostępu do nich z ewentualnych klas dziedziczących z Book;
     protected String title;
 
     public Book(String author, String title) {

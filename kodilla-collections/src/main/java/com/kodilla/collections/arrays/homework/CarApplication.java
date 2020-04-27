@@ -18,12 +18,12 @@ public class CarApplication {
     }
 
     public static Car drawCar() {
-        int drawSomeCar = new Random().nextInt(3);
-        int speedIn = new Random().nextInt(41);
-        int speedOut = 0; // musiałem dodać tą zmienną bo jest w klasach poszczególnych samochodów.
+        Random random = new Random();
+        int drawSomeCar = random.nextInt(3);
+        int randomSpeed = random.nextInt(21);
 
-        if (drawSomeCar == 0) return new Toyota(speedIn, speedOut);
-        else if (drawSomeCar == 1) return new Mercedes(speedIn, speedOut);
-        else return new Volkswagen(speedIn, speedOut);
+        if (drawSomeCar == 0) return new Toyota(0, randomSpeed, 0);
+        else if (drawSomeCar == 1) return new Mercedes(0, randomSpeed, 0);
+        else return new Volkswagen(0, randomSpeed, 0);
     }
 }

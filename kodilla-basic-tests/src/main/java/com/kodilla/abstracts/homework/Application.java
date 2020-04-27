@@ -27,7 +27,7 @@ public class Application {
 
         System.out.println(" ");
         System.out.println(" ");
-        System.out.println("FIRST PART OF EXERCISE");
+        System.out.println("SECOND PART OF EXERCISE");
         System.out.println(" ");
 
         Job doctor = new Doctor();
@@ -52,7 +52,6 @@ public class Application {
         musician1.employee();
         musician2.employee();
         musician3.employee();
-
 
     }
 }

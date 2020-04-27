@@ -20,8 +20,7 @@ public class ShapeApplication {
     private static Shape drawShape() {
         Random random = new Random();
         int drawnShapeKind = random.nextInt(3);
-        double a = random.nextDouble() * 100 + 1;
-        // dlaczego daje to wartość z zakresu 1.000 - 100.999... (w nawiasie nic nie ma)
+        double a = random.nextDouble() * 100 + 1; // nexDouble to metoda klasy Random losująca liczby od 0.0 - 1.0. Tutaj po pomnożeniu przez 100 i dodaniu 1 mamy 1.000-100.999;
         double b = random.nextDouble() * 100 + 1;
         double c = random.nextDouble() * 100 + 1;
         if (drawnShapeKind == 0)

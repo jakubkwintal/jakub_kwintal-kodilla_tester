@@ -9,9 +9,7 @@ import java.time.LocalTime;
 @Component
 @Scope
 public class Clock {
-    public Clock() {
 
-    }
     public LocalTime getTime() {
         return LocalTime.now();
     }

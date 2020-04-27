@@ -13,8 +13,8 @@ public class ShippingCenterTestSuite {
     public void shouldReturnTrue() {
         ApplicationContext context = new AnnotationConfigApplicationContext("com.kodilla.spring.basic.spring_dependency_injection");
         DeliveryService bean = context.getBean(DeliveryService.class);
-        boolean info = bean.deliverPackage("Radom, ul. Poziomkowa 3", 28);
-        Assertions.assertTrue(true);
+        boolean info = bean.deliverPackage("Radom, ul. Poziomkowa 3", 30);
+        Assertions.assertTrue(info);
 
     }
 
@@ -22,8 +22,8 @@ public class ShippingCenterTestSuite {
     public void shouldReturnFalse() {
         ApplicationContext context = new AnnotationConfigApplicationContext("com.kodilla.spring.basic.spring_dependency_injection");
         DeliveryService bean = context.getBean(DeliveryService.class);
-        boolean info = bean.deliverPackage("Radom, ul. Poziomkowa 3", 40);
-        Assertions.assertFalse(false);
+        boolean info = bean.deliverPackage("Radom, ul. Poziomkowa 3", 31);
+        Assertions.assertFalse(info);
 
     }
 
@@ -32,7 +32,7 @@ public class ShippingCenterTestSuite {
         ApplicationContext context = new AnnotationConfigApplicationContext("com.kodilla.spring.basic.spring_dependency_injection");
         NotificationService bean = context.getBean(NotificationService.class);
         String address = bean.success("Radom, ul. Poziomkowa 3");
-        Assertions.assertEquals("Radom, ul. Poziomkowa 3", address);
+        Assertions.assertEquals("Package delivered to: Radom, ul. Poziomkowa 3", address);
 
     }
 
@@ -41,7 +41,7 @@ public class ShippingCenterTestSuite {
         ApplicationContext context = new AnnotationConfigApplicationContext("com.kodilla.spring.basic.spring_dependency_injection");
         NotificationService bean = context.getBean(NotificationService.class);
         String address = bean.success("Radom, ul. Poziomkowa 7");
-        Assertions.assertEquals("Radom, ul. Poziomkowa 3", address);
+        Assertions.assertEquals("Package delivered to: Radom, ul. Poziomkowa 7", address);
 
     }
 }

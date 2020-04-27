@@ -1,5 +1,7 @@
 package com.kodilla.optional.homework;
 
+import java.util.Optional;
+
 public class Teacher {
     String name;
 

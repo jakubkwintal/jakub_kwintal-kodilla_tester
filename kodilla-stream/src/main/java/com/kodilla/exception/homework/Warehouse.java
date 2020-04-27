@@ -15,10 +15,6 @@ public class Warehouse {
                 .stream()
                 .filter(o -> o.getNumber().equals(number))
                 .findFirst().orElseThrow(OrderDoesntExistException::new);
-//  Alternatywy:
-// .findFirst().orElseThrow(Exception::new);
-// .findFirst().orElseThrow(() -> new OrderDoesntExistsException());
-// .findFirst().orElseThrow(() -> new Exception("Moj blad"));
 
         System.out.println("Your order number: " + order.getNumber());
         return order;

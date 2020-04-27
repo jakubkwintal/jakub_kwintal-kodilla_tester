@@ -14,14 +14,14 @@ public class ShapesListApplication {
 
         for (Square square: shapes) {
             if (square.getArea() > 20)
-                System.out.println(square + "area: " + square.getArea());
+                System.out.println(square + " area: " + square.getArea());
         }
 
 // STARA WERSJA:
 //        for (int n = 0; n < shapes.size(); n++) {
 //            Square square = shapes.get(n);
 //            if (square.getArea() > 20)
-//                System.out.println(square + "area: " + square.getArea());
+//                System.out.println(square + " area: " + square.getArea());
 //        }
 
     }

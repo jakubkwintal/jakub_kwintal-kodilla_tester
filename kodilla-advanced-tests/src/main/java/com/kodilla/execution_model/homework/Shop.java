@@ -9,33 +9,25 @@ public class Shop {
 
     List<Order> orders = new ArrayList<>();
 
-    //    metoda wstawiająca zamówienie
     public void addOrder(Order order) {
         this.orders.add(order);
-    }
+    }    //  metoda wstawiająca zamówienie
 
-    // metoda zwracająca liczbę zamówień
-    public int getSize() {
-        return this.orders.size();
-    }
+    public int getSize() { return this.orders.size(); }     //  metoda zwracająca liczbę zamówień
 
-    //    metoda sumująca wartość zamówień
-    public double sumOfOrdersPrice() {
+    public double sumOfOrdersPrice() {    //  metoda sumująca wartość zamówień
         double sum = 0;
         for (Order order : orders) sum += order.getPrice();
         return sum;
     }
 
-//    metoda zwracająca zamówienia z zakresu dat
-
-    public List<Order> orderListBetweenDates(LocalDate firstDate, LocalDate secondDate) {
+    public List<Order> orderListBetweenDates(LocalDate firstDate, LocalDate secondDate) {    //  metoda zwracająca zamówienia z zakresu dat
         return orders.stream().filter(order -> order.getDate().isAfter(firstDate.minusDays(1))
                 && order.getDate().isBefore(secondDate.plusDays(1))).collect(Collectors.toList());
     }
 
-    //    metoda filtrująca zamówienia pod względem zakresu ceny
-    public void orderListFromRangeOfPrices(double lowestPrice, double highestPrice) {
-        double i = 0.00;
-        while (lowestPrice <= highestPrice) {i++;}
+    public List<Order> orderListFromRangeOfPrices(double lowestPrice, double highestPrice) {     //  metoda filtrująca zamówienia pod względem zakresu ceny
+        return orders.stream().filter(order -> (order.getPrice() >= lowestPrice && order.getPrice() <= highestPrice)).collect(Collectors.toList());
+
     }
 }

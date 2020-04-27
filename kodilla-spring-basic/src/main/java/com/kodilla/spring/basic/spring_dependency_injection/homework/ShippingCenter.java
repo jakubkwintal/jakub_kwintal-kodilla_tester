@@ -1,21 +1,16 @@
 package com.kodilla.spring.basic.spring_dependency_injection.homework;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
 public class ShippingCenter {
 
+    @Autowired
 private DeliveryService deliveryService;
 
-public ShippingCenter(DeliveryService deliveryService) {
-    this.deliveryService = deliveryService;
-}
-
+    @Autowired
 private NotificationService notificationService;
-
-public ShippingCenter(NotificationService notificationService) {
-    this.notificationService = notificationService;
-}
 
     public String sendPackage(String address, double weight) {
         if (deliveryService.deliverPackage(address, weight)) {

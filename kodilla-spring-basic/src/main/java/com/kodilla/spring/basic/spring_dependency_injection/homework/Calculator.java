@@ -11,21 +11,27 @@ public class Calculator {
         this.display = display;
     }
 
-    public void add(double a, double b) {
-        double sum = a+b;
-        display.display(sum);
+    public double add(double a, double b) {
+        double add = a + b;
+        display.display(add);
+        return add;
     }
 
-//    public double substract(double a, double b) {
-//        return a - b;
-//    }
-//
-//    public double multiply(double a, double b) {
-//        return a * b;
-//    }
-//
-//    public double divide(double a, double b) {
-//        return a / b;
-//    }
+    public double substract(double a, double b) {
+        double substract = a - b;
+        display.display(substract);
+        return substract;
+    }
 
+    public double multiply(double a, double b) {
+        double multiply = a * b;
+        display.display(multiply);
+        return multiply;
+    }
+
+    public double divide(double a, double b) {
+        double divide = a / b;
+        display.display(divide);
+        return divide;
+    }
 }

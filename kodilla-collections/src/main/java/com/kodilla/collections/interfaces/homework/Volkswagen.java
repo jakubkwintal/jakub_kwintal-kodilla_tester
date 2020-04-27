@@ -1,18 +1,34 @@
 package com.kodilla.collections.interfaces.homework;
 
 public class Volkswagen implements Car{
-    private int speedIn;
-    private int speedOut;
+    private String name = "Volkswagen";
+    private int speed;
+    private int increaseSpeed;
+    private int decreaseSpeed;
 
-    public Volkswagen (int speedIn, int speedOut) {
-        this.speedIn = speedIn;
-        this.speedOut = speedOut;
+    public Volkswagen(int speed, int increaseSpeed, int decreaseSpeed) {
+        this.speed = speed;
+        this.increaseSpeed = increaseSpeed;
+        this.decreaseSpeed = decreaseSpeed;
     }
-    public String getName() { return "Volkswagen"; }
 
-    public int increaseSpeed() { return speedIn; }
+    @Override
+    public String getName() {
+        return name;
+    }
 
-    public int decreaseSpeed() { return speedOut; }
+    @Override
+    public int getSpeed() {
+        return speed;
+    }
 
-    public int getSpeed() { return 3*speedIn - 2*speedOut; }
+    @Override
+    public int increaseSpeed() {
+        return increaseSpeed;
+    }
+
+    @Override
+    public int decreaseSpeed() {
+        return decreaseSpeed;
+    }
 }

@@ -1,14 +1,16 @@
 package com.kodilla.spring.basic.spring_scopes.homework;
 
+import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
 
-import org.junit.jupiter.api.Test;
+
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import java.time.LocalDate;
 import java.time.LocalTime;
 
+@SpringBootTest
 public class ClockTestSuite {
 
     @Test
@@ -22,9 +24,9 @@ public class ClockTestSuite {
         LocalTime time2 = secondTime.getTime();
         LocalTime time3 = thirdTime.getTime();
 
-        Assertions.assertNotEquals(firstTime, secondTime);
-        Assertions.assertNotEquals(secondTime, thirdTime);
-        Assertions.assertNotEquals(firstTime, thirdTime);
+        Assertions.assertEquals(firstTime, secondTime);
+        Assertions.assertEquals(secondTime, thirdTime);
+        Assertions.assertEquals(firstTime, thirdTime);
 
     }
 }

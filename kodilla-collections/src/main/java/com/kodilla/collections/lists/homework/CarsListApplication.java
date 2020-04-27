@@ -12,10 +12,10 @@ import java.util.List;
 public class CarsListApplication {
     public static void main(String[] args) {
         List<Car> cars = new ArrayList<>();
-        cars.add(new Toyota(30, 27));
-        cars.add(new Mercedes(43, 28));
-        cars.add(new Volkswagen(34, 26));
-        Toyota toyota = new Toyota(32, 19);
+        cars.add(new Toyota(0,30, 27));
+        cars.add(new Mercedes(0,43, 28));
+        cars.add(new Volkswagen(0,34, 26));
+        Toyota toyota = new Toyota(0,32, 19);
         cars.add(toyota);
 
         System.out.println("-----------------------------------");

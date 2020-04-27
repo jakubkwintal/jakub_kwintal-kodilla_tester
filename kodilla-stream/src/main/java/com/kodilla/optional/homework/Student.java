@@ -9,7 +9,7 @@ public class Student {
     public Student(String name, Teacher teacher) {
         this.name = name;
         Optional<Teacher> optionalTeacher = Optional.ofNullable(teacher);
-        this.teacher = optionalTeacher.orElse(new Teacher("undefined"));
+        this.teacher = optionalTeacher.orElse(new Teacher("<undefined>"));
     }
 
     public String getName() {
