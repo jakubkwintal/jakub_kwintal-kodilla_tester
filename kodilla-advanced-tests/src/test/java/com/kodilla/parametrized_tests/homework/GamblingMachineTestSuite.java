@@ -17,12 +17,11 @@ public class GamblingMachineTestSuite {
 
     @ParameterizedTest
     @CsvFileSource(resources = "/gamblingMachineNumbersBis.csv", numLinesToSkip = 0)
-    public void shouldReturnTrueIfNumbersAreOk(int input, int expected) throws InvalidNumbersException {
+    public void shouldReturnTrueIfNumbersAreOk(String input) throws InvalidNumbersException {
         Set<Integer> validNumbers = new HashSet<>();
-
-        for (int number : validNumbers) {
-            validNumbers.add(number);
-            assertEquals(expected, input);
+        String[] splitedString = input.split(" ");
+                for (String number : splitedString) {
+            validNumbers.add(Integer.parseInt(number));
         }
 
         int numberOfWins = gamblingMachine.howManyWins(validNumbers);
@@ -30,23 +29,4 @@ public class GamblingMachineTestSuite {
         assertTrue(result);
 
     }
-
-//         OD KUBY:
-
-//    @ParameterizedTest
-//    @CsvFileSource(resources = "/gamblingMachineNumbers.csv", numLinesToSkip = 0)
-//    public void shouldReturnTrueIfNumbersAreOk(String string) throws InvalidNumbersException {
-//        String[] splitedString = string.split(" ");
-//
-//        Set<Integer> validSets = new HashSet<>();
-//
-//        for (String number : splitedString) {
-//            validSets.add(Integer.parseInt(number));
-//        }
-//
-//        int counted = gamblingMachine.howManyWins(validSets);
-//        boolean result = counted >= 0 && counted <= 6;
-//        assertTrue(result);
-//    }
-
 }

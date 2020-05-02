@@ -16,17 +16,18 @@ public class ClockTestSuite {
     @Test
     public void shouldReturnActualTime() {
         ApplicationContext context = new AnnotationConfigApplicationContext("com.kodilla.spring");
-        Clock firstTime = context.getBean(Clock.class);
-        Clock secondTime = context.getBean(Clock.class);
-        Clock thirdTime = context.getBean(Clock.class);
+        Clock clock1 = context.getBean(Clock.class);
+        Clock clock2 = context.getBean(Clock.class);
+        Clock clock3 = context.getBean(Clock.class);
 
-        LocalTime time1 = firstTime.getTime();
-        LocalTime time2 = secondTime.getTime();
-        LocalTime time3 = thirdTime.getTime();
+        LocalTime time1 = clock1.getTime();
+        LocalTime time2 = clock2.getTime();
+        LocalTime time3 = clock3.getTime();
 
-        Assertions.assertEquals(firstTime, secondTime);
-        Assertions.assertEquals(secondTime, thirdTime);
-        Assertions.assertEquals(firstTime, thirdTime);
+//        Assertions.assertNotEquals(time1, time2);
+//        Assertions.assertNotEquals(time2, time3);
+        Assertions.assertNotEquals(time1, time3);
 
+//        System.out.println(time1 + ",");
     }
 }
