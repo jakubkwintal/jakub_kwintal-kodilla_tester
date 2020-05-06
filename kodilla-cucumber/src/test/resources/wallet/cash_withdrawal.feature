@@ -1,13 +1,14 @@
 Feature: Cash Withdrawal
+
   Scenario Outline: Successful withdrawal from a wallet in credit
     Given I have deposited $200 in my wallet
     When I request <amount>
-    Then $30 should be dispensed
-        Examples:
+    Then <amount> should be dispensed
+    Examples:
       | amount |
-      | 30$    |
-      | 200$   |
-      | 1$     |
+      | $30    |
+      | $200   |
+      | $1     |
 
 
   Scenario Outline: Unsuccessful withdrawal more cash than is in a wallet
@@ -15,8 +16,9 @@ Feature: Cash Withdrawal
     When I request <amount>
     Then The teller informs me there is not enough money in my account
     Examples:
-      | amount   |
-      | 201$     |
+      | amount |
+      | $201   |
+      | $1000  |
 
 
   Scenario: Attempt to withdraw 0$ from a wallet
