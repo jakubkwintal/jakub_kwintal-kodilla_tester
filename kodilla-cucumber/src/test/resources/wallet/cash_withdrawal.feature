@@ -4,11 +4,12 @@ Feature: Cash Withdrawal
     Given I have deposited $200 in my wallet
     When I request <amount>
     Then <amount> should be dispensed
+    And the balance of my wallet should be <balance>
     Examples:
-      | amount |
-      | $30    |
-      | $200   |
-      | $1     |
+      | amount |balance|
+      | $30    |$170   |
+      | $200   |$0     |
+      | $1     |$199   |
 
 
   Scenario Outline: Unsuccessful withdrawal more cash than is in a wallet

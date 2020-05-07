@@ -8,7 +8,7 @@ public class Teller {
     }
 
     public void withdraw(Wallet wallet, int amount) {
-//        while(amount <= wallet.getBalance())
+        wallet.debit(amount);
         cashSlot.dispense(amount);
     }
 }
