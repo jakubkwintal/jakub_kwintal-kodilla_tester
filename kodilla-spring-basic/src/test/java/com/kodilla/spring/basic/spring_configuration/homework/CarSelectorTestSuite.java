@@ -30,7 +30,7 @@ public class CarSelectorTestSuite {
         Cabrio cabrio = (Cabrio) context.getBean("lights");
         //When
         LocalTime now = LocalTime.of(19, 14);
-//      boolean lights = cabrio.hasHeadlightsTurnedOn();
+        boolean lights = cabrio.hasHeadlightsTurnedOn();
 
         //Then
         Assertions.assertTrue(true);

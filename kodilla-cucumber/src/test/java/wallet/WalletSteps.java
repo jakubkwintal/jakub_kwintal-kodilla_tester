@@ -18,6 +18,7 @@ public class WalletSteps implements En {
             Assert.assertEquals("Incorrect wallet balance", 200, wallet.getBalance());
         });
 
+
         When("I request $30", () -> {
             teller.withdraw(wallet, 30);
         });
@@ -51,22 +52,12 @@ public class WalletSteps implements En {
         });
 
 
-        When("I request $201", () -> { // ????????????
-            teller.withdraw(wallet, 201); // ???????????????? ta kwota jest większa od depozytu
-        });
-        Then("The teller informs me there is not enough money in my account", () -> {
-            // ???????????
-        });
-
-
-        When("I request $1000", () -> { // ????????????
-            teller.withdraw(wallet, 1000); // ???????????????? ta kwota jest większa od depozytu
-        });
-        When("I request 0$", () -> { // ????????????
-            teller.withdraw(wallet, 0); // ???????????
+        When("^I request \"([^\"]*)\"\\$$", (String value) -> {
+            if (Integer.valueOf(value) == 0) {
+                System.out.println("The teller informs me that even no coin has such value"); }
         });
         Then("The teller informs me that even no coin has such value", () -> {
-            // ??????????
+            Assert.assertEquals("Incorrect wallet balance", 200, wallet.getBalance());
         });
 
 
@@ -77,15 +68,17 @@ public class WalletSteps implements En {
             Assert.assertEquals("Incorrect wallet balance", 100, wallet.getBalance());
         });
 
-        When("I withdraw $200", () -> {
-            teller.withdraw(wallet, 200);
+
+        When("^I withdraw \"([^\"]*)\" \\$$", (String amount) -> {
+            if (Integer.valueOf(amount) > wallet.getBalance()) {
+                System.out.println("The teller informs me there is not enough money in my account"); }
         });
         Then("nothing should be dispensed", () -> {
             Assert.assertEquals(0, cashSlot.getContents());
-
         });
         Then("I should be told that I have insufficient funds in my account", () -> {
-            Assert.assertEquals("You can withdraw up to $ 100.", -100, wallet.getBalance());
+            System.out.println("There is only $100 on your account.");
+            Assert.assertEquals(100, wallet.getBalance());
         });
 
 
