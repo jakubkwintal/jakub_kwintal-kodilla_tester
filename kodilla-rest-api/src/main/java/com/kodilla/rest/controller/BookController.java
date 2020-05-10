@@ -22,8 +22,9 @@ class BookController {
     }
 
     @PostMapping
-    public void addBook(@RequestBody BookDto bookDto) {
+    public BookDto addBook(@RequestBody BookDto bookDto) {
         bookService.addBook(bookDto);
+        return bookDto;
     }
 
     @DeleteMapping
@@ -31,10 +32,4 @@ class BookController {
         bookService.removeBook(bookDto);
     }
 
-    @Override
-    public String toString() {
-        return "BookController{" +
-                "bookService=" + bookService +
-                '}';
-    }
 }
