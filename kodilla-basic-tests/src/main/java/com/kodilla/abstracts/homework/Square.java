@@ -8,12 +8,12 @@ public class Square extends Shape {
 
     @Override
     public double calculateArea() {
-       return 4*getWidth();
+        return 4 * getWidth();
     }
 
     @Override
     public double calculatePerimeter() {
-        return getWidth()*getWidth();
+        return getWidth() * getWidth();
     }
 
     @Override

@@ -8,16 +8,16 @@ public class Triangle extends Shape {
 
     @Override
     public double calculateArea() {
-        return getWidth()*getHeight()/2;
+        return getWidth() * getHeight() / 2;
     }
 
     @Override
     public double calculatePerimeter() {
-        return getWidth()+getHeight()+(Math.sqrt(getWidth()*getWidth()+getHeight()*getHeight()));
+        return getWidth() + getHeight() + (Math.sqrt(getWidth() * getWidth() + getHeight() * getHeight()));
     }
 
     public double calculateHypotenuse() {
-        return Math.sqrt(getWidth()*getWidth()+getHeight()*getHeight());
+        return Math.sqrt(getWidth() * getWidth() + getHeight() * getHeight());
     }
 
 }
