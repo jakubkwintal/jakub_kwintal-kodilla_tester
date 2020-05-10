@@ -12,6 +12,7 @@ public class OperatingSystem {
     public void turnOn() {
         System.out.println("Rok wydania systemu: " + yearIn);
     }
+
     public void turnOff() {
         System.out.println("Rok zakończonia wsparcia dla systemu: " + yearOut);
     }
@@ -19,6 +20,7 @@ public class OperatingSystem {
     public int getYearIn() {
         return yearIn;
     }
+
     public int getYearOut() {
         return yearOut;
     }
