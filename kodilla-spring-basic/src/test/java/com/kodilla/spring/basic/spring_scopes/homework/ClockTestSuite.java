@@ -25,9 +25,9 @@ public class ClockTestSuite {
         LocalTime time3 = clock3.getTime();
 
 //        Assertions.assertNotEquals(time1, time2);
-//        Assertions.assertNotEquals(time2, time3);
+//        Assertions.assertNotEquals(time2, time3); // komputer nie wyłapuje różnicy między sąsiednimi czasami
         Assertions.assertNotEquals(time1, time3);
 
-//        System.out.println(time1 + ",");
+        System.out.println(time1 + "," + time2  + ", " + time3);
     }
 }

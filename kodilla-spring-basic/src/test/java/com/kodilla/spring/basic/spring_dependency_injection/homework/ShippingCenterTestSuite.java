@@ -15,7 +15,6 @@ public class ShippingCenterTestSuite {
         DeliveryService bean = context.getBean(DeliveryService.class);
         boolean info = bean.deliverPackage("Radom, ul. Poziomkowa 3", 30);
         Assertions.assertTrue(info);
-
     }
 
     @Test
@@ -24,7 +23,6 @@ public class ShippingCenterTestSuite {
         DeliveryService bean = context.getBean(DeliveryService.class);
         boolean info = bean.deliverPackage("Radom, ul. Poziomkowa 3", 31);
         Assertions.assertFalse(info);
-
     }
 
     @Test
@@ -33,7 +31,6 @@ public class ShippingCenterTestSuite {
         NotificationService bean = context.getBean(NotificationService.class);
         String address = bean.success("Radom, ul. Poziomkowa 3");
         Assertions.assertEquals("Package delivered to: Radom, ul. Poziomkowa 3", address);
-
     }
 
     @Test
@@ -42,6 +39,5 @@ public class ShippingCenterTestSuite {
         NotificationService bean = context.getBean(NotificationService.class);
         String address = bean.success("Radom, ul. Poziomkowa 7");
         Assertions.assertEquals("Package delivered to: Radom, ul. Poziomkowa 7", address);
-
     }
 }

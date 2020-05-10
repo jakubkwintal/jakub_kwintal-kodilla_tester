@@ -30,4 +30,11 @@ class BookController {
     public void removeBook(@RequestBody BookDto bookDto) {
         bookService.removeBook(bookDto);
     }
+
+    @Override
+    public String toString() {
+        return "BookController{" +
+                "bookService=" + bookService +
+                '}';
+    }
 }

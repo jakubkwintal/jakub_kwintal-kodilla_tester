@@ -16,23 +16,26 @@ public class CarSelectorTestSuite {
     public void shouldSelectCarDependingOnSeason() {
         //Given
         ApplicationContext context = new AnnotationConfigApplicationContext("com.kodilla.spring");
-        Sedan sedan = (Sedan) context.getBean("selectCar");
+        Car car = (Car) context.getBean("selectCar");
         //When
-        String season = sedan.season();
+        String summer = "Summer";
+        CarSelector carSelector = new CarSelector();
+        carSelector.season.equals(summer);
+        String carType = car.getCarType();
         //Then
-        Assertions.assertEquals("Spring&Autumn", season);
+        Assertions.assertEquals("Cabrio", carType);
     }
 
+
     @Test
-    public void shouldTurnOnLigths() { // JAK TO ZROBIĆ????
+    public void shouldTurnOnLigths() {
         //Given
         ApplicationContext context = new AnnotationConfigApplicationContext("com.kodilla.spring");
-        Cabrio cabrio = (Cabrio) context.getBean("lights");
+        Sedan sedan = context.getBean(Sedan.class);
         //When
-        LocalTime now = LocalTime.of(19, 14);
-        boolean lights = cabrio.hasHeadlightsTurnedOn();
-
+        sedan.now = LocalTime.of(5, 14);
+        System.out.println(sedan.now);
         //Then
-        Assertions.assertTrue(true);
+        Assertions.assertTrue(sedan.hasHeadlightsTurnedOn());
     }
 }

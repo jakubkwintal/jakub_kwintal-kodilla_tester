@@ -5,6 +5,4 @@ public interface Car {
     boolean hasHeadlightsTurnedOn();
 
     String getCarType();
-
-    String season();
 }
