@@ -7,13 +7,11 @@ import org.junit.jupiter.params.provider.CsvFileSource;
 import java.util.HashSet;
 import java.util.Set;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class GamblingMachineTestSuite {
 
     private GamblingMachine gamblingMachine = new GamblingMachine();
-
 
     @ParameterizedTest
     @CsvFileSource(resources = "/gamblingMachineNumbersBis.csv", numLinesToSkip = 0)
