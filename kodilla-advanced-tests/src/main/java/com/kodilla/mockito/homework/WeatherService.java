@@ -16,9 +16,9 @@ public class WeatherService {
         oneClientToOneLocation.remove(locations, clients);
     }
 
-//    public void removeSubscriberFromAllLocations(Notification notification) { // jak to zrobić???
-//        oneClientToOneLocation.forEach(u -> u.remove(clients));
-//    }
+    public void removeSubscriberFromAllLocations(Notification notification, Location location) { // jak to zrobić???
+        oneClientToOneLocation.forEach(u -> u.remove(clients));
+    }
 
     public void sendWeatherNotificationForOneLocation(Notification notification) {  // jak wysłać klientom z jednej tylko lokalizacji????
         Set<Client> clientsInOneLocation = new HashSet<>();

@@ -1,32 +1,22 @@
 package com.kodilla.bank.homework;
 
-// tablica ze zrealizowanymi transakcjami
-// (liczbowa wartość dodatnia, jeśli użytkownik wpłacił pieniądze,
-// ujemna jeśli użytkownik wypłacił pieniądze).
-//
-// Metody zwracające saldo bankomatu oraz liczbę wykonanych transakcji.
-
-
 public class CashMachine {
-
 
     private int[] transactions;
     private int size;
 
     public CashMachine() {
-        this.size = 0; // pozycja wyjściowa: wielkość tabeli równa 0
-        this.transactions = new int[0]; // pozycja wyjściowa: tabela bez rekordów
+        this.transactions = new int[0];
+        this.size = 0;
     }
 
-    public void addTransaction(int transaction) { // dodaje transakcję do tabeli;
-        // nie jest ustalona wielkość tabeli i gdy dodaje nowy rekord, tworzy nową tabelę (bankomat)
-        // i do niej kopiuje wszystkie rekordy starej t. oraz wstawia ten nowy rekord.
+    public void addTransaction(int transaction) {
 
         this.size++;
-        int[] newCashMachine = new int[this.size];
-        System.arraycopy(transactions, 0, newCashMachine, 0, transactions.length);
-        newCashMachine[this.size - 1] = transaction; // nowa transakcja o indeksie [this.size -1] (bo liczymy indexy od 0)
-        this.transactions = newCashMachine;
+        int[] actualCashMachine = new int[this.size];
+        System.arraycopy(transactions, 0, actualCashMachine, 0, transactions.length);
+        actualCashMachine[this.size - 1] = transaction;
+        this.transactions = actualCashMachine;
     }
 
     public int[] getTransactions() {
@@ -37,24 +27,52 @@ public class CashMachine {
         return size;
     }
 
-    public double getAverage() { // średnia wartość jednej transakcji
-        if (this.transactions.length == 0) {
+    public int getSum() {
+        int sum = 0;
+        for (int i = 0; i < this.transactions.length; i++) {
+            sum += this.transactions[i];
+        }
+        return sum;
+    }
+
+    public int getNumberOfWithdrawals() {
+        int number = 0;
+        for (int i = 0; i < this.transactions.length; i++) {
+            if (transactions[i] < 0)
+                number++;
+        }
+        return number;
+    }
+
+    public int getNumberOfDeposits() {
+        int number = 0;
+        for (int i = 0; i < this.transactions.length; i++) {
+            if (transactions[i] > 0)
+                number++;
+        }
+        return number;
+    }
+
+    public double getSumOfWithdrawals() {
+        if (getNumberOfWithdrawals() == 0) {
             return 0;
         }
         double sum = 0;
         for (int i = 0; i < this.transactions.length; i++) {
-            sum += this.transactions[i];
+            if (transactions[i] < 0)
+                sum += this.transactions[i];
         }
-        return sum / this.transactions.length;
+        return sum;
     }
 
-    public int getSum() { // wartość wszystkich traksakcji z jednego bankomatu
-        if (this.transactions.length == 0) {
+    public double getSumOfDeposits() {
+        if (getNumberOfDeposits() == 0) {
             return 0;
         }
-        int sum = 0;
+        double sum = 0;
         for (int i = 0; i < this.transactions.length; i++) {
-            sum += this.transactions[i];
+            if (transactions[i] > 0)
+                sum += this.transactions[i];
         }
         return sum;
     }
