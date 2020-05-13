@@ -21,8 +21,8 @@ public class AirportRepositoryTestSuite {
         //given
         AirportRepository airportRepository = new AirportRepository();
         //when
-        boolean isWarsawInUse = airportRepository.isAirportInUse("Vienna");
+        boolean isViennaInUse = airportRepository.isAirportInUse("Vienna");
         //then
-        assertFalse(isWarsawInUse);
+        assertFalse(isViennaInUse);
     }
 }
