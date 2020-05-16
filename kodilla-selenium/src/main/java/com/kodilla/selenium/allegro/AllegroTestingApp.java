@@ -12,9 +12,11 @@ public class AllegroTestingApp {
         driver.get("https://allegro.pl/");
 
         //* wyłączenie alertu
-        while (!driver.findElement(By.xpath("//*[@data-box-name=\"allegro.rodoConsentModal\"]/div/div/div/button")).isDisplayed()) {
+        while (!driver.findElement(By.xpath(
+                "//*[@data-box-name=\"allegro.rodoConsentModal\"]/div/div/div/button")).isDisplayed()) {
         }
-        driver.findElement(By.xpath("//*[@data-box-name=\"allegro.rodoConsentModal\"]/div/div/div/button")).click();
+        driver.findElement(By.xpath(
+                "//*[@data-box-name=\"allegro.rodoConsentModal\"]/div/div/div/button")).click();
 
 
         //* nazwa produktu (nie można na końcu użyć inputField.submit() bo wyszuka bez wyboru kategorii
@@ -24,11 +26,6 @@ public class AllegroTestingApp {
 
         //* wybór kategorii
         driver.findElement(By.xpath("//*[@class=\"_r65gb _1fwkl\"]/select/optgroup/option[3]")).click();
-
-                    //* ten sposób nie działa
-                    //        WebElement categoryCombo = driver.findElement(By.xpath("//*[@class=\"_r65gb _1fwkl\"]/select/optgroup"));
-                    //        Select categorySelect = new Select(categoryCombo);
-                    //        categorySelect.selectByIndex(2);
 
         //* kliknięcie "Szukaj"
         driver.findElement(By.xpath("//form[@class=\"_1h7wt _d25db_UtYE1\"]/button")).click();
