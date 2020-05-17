@@ -4,6 +4,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.util.concurrent.TimeUnit;
 
 public class AllegroTestingApp {
     public static void main(String[] args) {
@@ -11,12 +15,22 @@ public class AllegroTestingApp {
         WebDriver driver = new ChromeDriver();
         driver.get("https://allegro.pl/");
 
-        //* wyłączenie alertu
-        while (!driver.findElement(By.xpath(
-                "//*[@data-box-name=\"allegro.rodoConsentModal\"]/div/div/div/button")).isDisplayed()) {
-        }
-        driver.findElement(By.xpath(
-                "//*[@data-box-name=\"allegro.rodoConsentModal\"]/div/div/div/button")).click();
+//        //* wyłączenie alertu ver. 1
+//        while (!driver.findElement(By.xpath(
+//                "//*[@data-box-name=\"allegro.rodoConsentModal\"]/div/div/div/button")).isDisplayed()) {
+//        }
+//        driver.findElement(By.xpath(
+//                "//*[@data-box-name=\"allegro.rodoConsentModal\"]/div/div/div/button")).click();
+
+
+        //* wyłączenie alertu ver. 2
+        WebDriverWait wait = new WebDriverWait(driver,5);
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        WebElement element = driver.findElement(By.xpath(
+                "//*[@data-box-name=\"allegro.rodoConsentModal\"]/div/div/div/button"));
+
+        wait.until(ExpectedConditions.visibilityOf(element));
+        element.click();
 
 
         //* nazwa produktu (nie można na końcu użyć inputField.submit() bo wyszuka bez wyboru kategorii

@@ -17,8 +17,7 @@ public class BookManager {
         return book;
     }
 
-    public Set<Book> getBooks() {
-        System.out.println(books.size());
-        return books;
+    public void howManyBooks() {
+        System.out.println("Aktualnie posiadam " + books.size() + " książki.");
     }
 }
