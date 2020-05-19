@@ -7,11 +7,10 @@ public class CashMachine {
 
     public CashMachine() {
         this.transactions = new int[0];
-        this.size = 0;
+//        this.size = 0;
     }
 
     public void addTransaction(int transaction) {
-
         this.size++;
         int[] actualCashMachine = new int[this.size];
         System.arraycopy(transactions, 0, actualCashMachine, 0, transactions.length);

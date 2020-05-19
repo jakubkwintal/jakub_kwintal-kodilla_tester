@@ -1,6 +1,7 @@
 package com.kodilla.spring.basic.spring_configuration.homework;
 
 
+import org.junit.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -30,4 +31,22 @@ public class CarSelectorTestSuite {
         assertEquals(carType, selectedCar);
         assertEquals(lights, checkLights);
     }
+
+
+    @Test
+    public void shouldSelectCar2() {
+//given
+        LocalTime timeNow = LocalTime.parse("12:00");
+        ApplicationContext context = new AnnotationConfigApplicationContext("com.kodilla.spring");
+        Car car = (Car) context.getBean("selectCar", "Winter", timeNow);
+//when
+        String selectedCar = car.getCarType();
+        boolean checkLights = car.hasHeadlightsTurnedOn();
+//then
+        assertEquals("SUV", selectedCar);
+        assertEquals(true, checkLights);
+
+    }
+
+
 }
