@@ -45,10 +45,13 @@ public class InvoiceRepositoryTestSuite {
 
         //When
         invoiceRepository.save(invoiceA);
-        int invoice = invoiceA.getId();
+        int id = invoiceA.getId();
 
         //Then
-        Assert.assertNotEquals(0, invoice);
+        Assert.assertNotEquals(0, id);
+
+        //CleanUp
+        invoiceRepository.deleteById(id);
     }
 
 }
