@@ -32,9 +32,10 @@ public class InvoiceRepositoryTestSuite {
         Item item2 = new Item(new BigDecimal(5.00), 2, new BigDecimal(10));
         Item item3 = new Item(new BigDecimal(12.50), 5, new BigDecimal(62.5));
 
-        item1.getProducts().add(product1);
-        item2.getProducts().add(product2);
-        item3.getProducts().add(product1);
+
+        product1.getItems().add(item1);
+        product2.getItems().add(item2);
+        product1.getItems().add(item1);
 
         Invoice invoiceA = new Invoice("2020/05/16/001");
 

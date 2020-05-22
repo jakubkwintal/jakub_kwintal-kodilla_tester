@@ -3,20 +3,15 @@ package com.kodilla.hibernate.invoice;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
 @Table(name = "ITEMS")
 public class Item {
     private int id;
-
-
     private Product product;
     private BigDecimal price;
     private int quantity;
     private BigDecimal value;
-    private List<Product> products = new ArrayList<>();
     Invoice invoice;
 
     public Item() {
@@ -36,14 +31,10 @@ public class Item {
         return id;
     }
 
-    @OneToMany(
-            targetEntity = Product.class,
-            mappedBy = "item",
-            cascade = CascadeType.ALL,
-            fetch = FetchType.LAZY
-    )
-    public List<Product> getProducts() {
-        return products;
+    @ManyToOne
+    @JoinColumn(name = "PRODUCT_ID")
+    public Product getProduct() {
+        return product;
     }
 
     @ManyToOne
@@ -74,8 +65,8 @@ public class Item {
         this.id = id;
     }
 
-    public void setProducts(List<Product> products) {
-        this.products = products;
+    public void setProduct(Product product) {
+        this.product = product;
     }
 
     public void setPrice(BigDecimal price) {
