@@ -13,7 +13,9 @@ public class Shop {
         this.orders.add(order);
     }    //  metoda wstawiająca zamówienie
 
-    public int getSize() { return this.orders.size(); }     //  metoda zwracająca liczbę zamówień
+    public int getSize() {
+        return this.orders.size();
+    }     //  metoda zwracająca liczbę zamówień
 
     public double sumOfOrdersPrice() {    //  metoda sumująca wartość zamówień
         double sum = 0;

@@ -39,6 +39,7 @@ public class ShopTestSuite {
     public void shouldReturnOrdersFromRangeOfDates() {
         List<Order> ordersFromRangeOfDates;
         ordersFromRangeOfDates = shop.orderListBetweenDates(LocalDate.of(2020, 03, 03), LocalDate.of(2020, 03, 07));
+        System.out.println(ordersFromRangeOfDates);
         assertEquals(4, ordersFromRangeOfDates.size());
     }
 
@@ -46,6 +47,7 @@ public class ShopTestSuite {
     public void shouldReturnOrdersFromRangeOfPrices() {
         List<Order> ordersFromRangeOfPrices;
         ordersFromRangeOfPrices = shop.orderListFromRangeOfPrices(2.00, 25.00);
+        System.out.println(ordersFromRangeOfPrices);
         assertEquals(3, ordersFromRangeOfPrices.size());
     }
 

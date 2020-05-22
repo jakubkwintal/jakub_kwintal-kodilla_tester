@@ -33,17 +33,17 @@ public class Company {
         return name;
     }
 
+    @ManyToMany(cascade = CascadeType.ALL, mappedBy = "companies")
+    public List<Employee> getEmployees() {
+        return employees;
+    }
+
     private void setId(int id) {
         this.id = id;
     }
 
     private void setName(String name) {
         this.name = name;
-    }
-
-    @ManyToMany(cascade = CascadeType.ALL, mappedBy = "companies")
-    public List<Employee> getEmployees() {
-        return employees;
     }
 
     public void setEmployees(List<Employee> employees) {

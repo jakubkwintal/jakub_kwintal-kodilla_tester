@@ -55,6 +55,11 @@ public class Task {
         return taskFinancialDetails;
     }
 
+    @ManyToOne
+    @JoinColumn(name = "TASKLIST_ID")
+    public TaskList getTaskList() {
+        return taskList;
+    }
 
     public void setId(int id) {
         this.id = id;
@@ -74,12 +79,6 @@ public class Task {
 
     public void setTaskFinancialDetails(TaskFinancialDetails taskFinancialDetails) {
         this.taskFinancialDetails = taskFinancialDetails;
-    }
-
-    @ManyToOne
-    @JoinColumn(name = "TASKLIST_ID")
-    public TaskList getTaskList() {
-        return taskList;
     }
 
     public void setTaskList(TaskList taskList) {
