@@ -4,7 +4,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class BookManager {
-    private Set<Book> books = new HashSet<>();
+    Set<Book> books = new HashSet<>(); // może być też w klasie BookApplication
 
     public Book createBook(String title, String author) {
         Book book = new Book(title, author);
@@ -19,5 +19,11 @@ public class BookManager {
 
     public void howManyBooks() {
         System.out.println("Aktualnie posiadam " + books.size() + " książki.");
+    }
+
+    public void myLibrary() {
+        for (Book book : books) {
+            System.out.println(book.getAuthor() + ", " + book.getTitle());
+        }
     }
 }
