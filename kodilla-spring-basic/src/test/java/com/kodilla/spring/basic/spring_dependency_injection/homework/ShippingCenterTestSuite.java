@@ -37,7 +37,7 @@ public class ShippingCenterTestSuite {
     public void shouldReturnIfFail() {
         ApplicationContext context = new AnnotationConfigApplicationContext("com.kodilla.spring.basic.spring_dependency_injection");
         NotificationService bean = context.getBean(NotificationService.class);
-        String address = bean.success("Radom, ul. Poziomkowa 7");
-        Assertions.assertEquals("Package delivered to: Radom, ul. Poziomkowa 7", address);
+        String address = bean.fail("Radom, ul. Poziomkowa 7");
+        Assertions.assertEquals("Package not delivered to: Radom, ul. Poziomkowa 7", address);
     }
 }

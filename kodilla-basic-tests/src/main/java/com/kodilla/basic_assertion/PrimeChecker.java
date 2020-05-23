@@ -19,11 +19,11 @@ public class PrimeChecker {
     }
 
 
-    public int getCount() {
-        return count;
-    }
-
-    public void incrementCount() {
-        this.count++;
-    }
+//    public int getCount() {
+//        return count;
+//    }
+//
+//    public void incrementCount() {
+//        this.count++;
+//    }
 }
