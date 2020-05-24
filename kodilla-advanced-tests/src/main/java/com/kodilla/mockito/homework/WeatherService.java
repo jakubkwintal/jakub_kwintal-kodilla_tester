@@ -4,16 +4,16 @@ import java.util.*;
 
 public class WeatherService {
 
-    Map<Set<Location>, Set<Client>> oneClientToOneLocation = new HashMap<>();
-    private Set<Location> locations = new HashSet<>();
+    Map<Location, Set<Client>> locationWithClients = new HashMap<>();
+    private Location location;
     private Set<Client> clients = new HashSet<>();
 
     public void addSubscriberToOneLocation(Location location, Client client) {
-        oneClientToOneLocation.put(locations, clients);
+        locationWithClients.put(location, clients);
     }
 
     public void removeSubscriberFromOneLocation(Location location, Client client) {
-        oneClientToOneLocation.remove(locations, clients);
+        locationWithClients.remove(location, clients);
     }
 
 //    public void removeSubscriberFromAllLocations(Notification notification, Location location) { // jak to zrobić???

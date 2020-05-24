@@ -1,15 +1,16 @@
 package com.kodilla.collections.adv.immutable.special.homework;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 public class BookManager {
-    Set<Book> books = new HashSet<>(); // może być też w klasie BookApplication
+    List<Book> books = new ArrayList<>();
 
     public Book createBook(String title, String author) {
         Book book = new Book(title, author);
         if (books.contains(book)) {
-            System.out.println("Już mam książkę " + book.getTitle() + " autorstwa " + book.getAuthor() + ". Nie potrzebuję kolejnego egzemplarza.");
+            System.out.println("Już mam książkę " + book.getTitle() + " autorstwa " + book.getAuthor() + ". Mogę mieć kolejną.");
+            books.add(book);
         } else {
             System.out.println("Nie miałem książki " + book.getTitle() + " autorstwa " + book.getAuthor() + ". Dzięki.");
             books.add(book);
