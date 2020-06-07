@@ -2,7 +2,7 @@ plugins {
     id 'java'
 }
 
-version 'unspecified'
+version '1.0-SNAPSHOT'
 
 sourceCompatibility = 1.8
 
@@ -17,5 +17,6 @@ dependencies {
         exclude group: "net.sf", module: "jargs"
     }
     testCompile group: 'junit', name: 'junit', version: '4.12'
+    testCompile 'com.codeborne:selenide:5.8.0' // biblioteka Selenide
 }
 

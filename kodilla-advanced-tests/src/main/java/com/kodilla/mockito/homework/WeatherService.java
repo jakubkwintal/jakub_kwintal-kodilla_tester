@@ -1,36 +1,46 @@
 package com.kodilla.mockito.homework;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
 
 public class WeatherService {
 
-    Map<Location, Set<Client>> locationWithClients = new HashMap<>();
-    private Location location;
-    private Set<Client> clients = new HashSet<>();
+    private Map<Client, Set<Location>> clientAndLocations = new HashMap<>();
 
-    public void addSubscriberToOneLocation(Location location, Client client) {
-        locationWithClients.put(location, clients);
+    public void addClientToOneLocation(Client client, Location location) { // TEST
+
+        clientAndLocations.computeIfAbsent(client, u -> new HashSet<>()).add(location);
     }
 
-    public void removeSubscriberFromOneLocation(Location location, Client client) {
-        locationWithClients.remove(location, clients);
+    public void removeClientFromOneLocation(Client client, Location location) { //TEST
+        this.clientAndLocations.entrySet()
+                .stream()
+                .filter(u -> u.getKey().equals(client))
+                .forEach(u -> u.getValue().remove(location));
     }
 
-//    public void removeSubscriberFromAllLocations(Notification notification, Location location) { // jak to zrobić???
-//        oneClientToOneLocation.forEach(u -> u.remove(clients));
-//    }
-
-    public void sendWeatherNotificationForOneLocation(Notification notification) {  // jak wysłać klientom z jednej tylko lokalizacji????
-        Set<Client> clientsInOneLocation = new HashSet<>();
-        clientsInOneLocation.forEach(client -> client.receive(notification));
-    }
-
-    public void sendWeatherNotificationToAll(Notification notification) {
-        clients.forEach(client -> client.receive(notification));
+    public void removeClientFromAllLocations(Client client) { //TEST
+        this.clientAndLocations.remove(client);
     }
 
     public void removeOneLocation(Location location) {
-        this.locations.remove(location);
+        this.clientAndLocations.entrySet()
+                .stream()
+                .filter(u -> u.getValue().contains(location))
+                .forEach(u -> u.getValue().remove(location));
     }
 
+    public void sendWeatherNotificationForOneLocation(Notification notification, Location location) { //TEST
+        this.clientAndLocations.entrySet()
+                .stream()
+                .filter(u -> u.getValue().contains(location))
+                .forEach(u -> u.getKey().receive(notification));
+    }
+
+    public void sendNotificationToAll(Notification notification) {
+        this.clientAndLocations.entrySet()
+                .forEach(u -> u.getKey().receive(notification));
+    }
 }

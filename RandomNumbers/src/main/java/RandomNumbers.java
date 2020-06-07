@@ -20,6 +20,7 @@ public class RandomNumbers {
         int sum = 0;
         while (sum < max) {
             temp = random.nextInt(31);
+            System.out.println(temp); // wyświetla każdy kolejny losowany numer aż suma dojdzie do 5001
             sum = sum + temp;
         }
         return sum;

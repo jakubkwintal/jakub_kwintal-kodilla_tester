@@ -17,4 +17,6 @@ include 'kodilla-soap-library'
 include 'kodilla-selenium'
 include 'kodilla-cucumber'
 include 'kodilla-code-coverage'
+include 'java-puzzle'
+include 'Exercises'
 

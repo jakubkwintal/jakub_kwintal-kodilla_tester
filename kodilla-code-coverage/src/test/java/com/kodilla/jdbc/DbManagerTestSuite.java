@@ -96,7 +96,7 @@ public class DbManagerTestSuite {
         statement.executeUpdate(sql);
 
         //When
-        String sqlQuery = "SELECT U.FIRSTNAME, U.LASTNAME, COUNT(*) AS POSTS_NUMBER\n" +
+        String sqlQuery = "SELECT U.FIRSTNAME, U.LASTNAME, COUNT(*) AS POSTS_NUMBER\n" + // Wyrzucić bo to jest powtórzenie
                 "FROM USERS U\n" +
                 "JOIN POSTS P ON U.ID = P.USER_ID\n" +
                 "GROUP BY P.USER_ID\n" +

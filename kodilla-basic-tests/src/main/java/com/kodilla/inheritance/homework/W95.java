@@ -6,10 +6,10 @@ public class W95 extends OperatingSystem {
         super(yearIn, yearOut);
     }
 
-    @Override
-    public void turnOn() {
-        System.out.println("Rok wydania Windows 95: " + getYearIn());
-    }
+//    @Override
+//    public void turnOn() {
+//        System.out.println("Rok wydania Windows 95: " + getYearIn());
+//    }
 
     @Override
     public void turnOff() {
