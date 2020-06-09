@@ -19,4 +19,6 @@ include 'kodilla-cucumber'
 include 'kodilla-code-coverage'
 include 'java-puzzle'
 include 'Exercises'
+include 'Final Project'
+include 'final-project'
 
